@@ -1,0 +1,34 @@
+<app-toolbar></app-toolbar>
+
+<mat-card *ngFor = "let chilivote of chilivotes" class="example-card">
+    <mat-card-header>
+            <mat-icon (click)="onDelete(chilivote)" style="position: absolute; right:1em;">close</mat-icon>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{user.username}}</mat-card-title>
+      <mat-card-subtitle>{{chilivote.created_at | date:'medium'}}</mat-card-subtitle>
+    </mat-card-header>
+    <h3>{{chilivote.title}}</h3>
+    <div class="photos-container">
+            <mat-grid-list cols="2">
+                <mat-grid-tile>
+                    <div style="width:100%;display:block">
+                    <cl-image style="max-width:100%; width:100%" class="" public-id="{{chilivote.answerLeft.url}}" secure="true">
+                            
+                    </cl-image>
+                    </div>
+                </mat-grid-tile>
+        
+                <mat-grid-tile>
+                    <div>
+                        <cl-image style="max-width:100%" class="" public-id="{{chilivote.answerRight.url}}" secure="true">
+                                
+                        </cl-image>
+                        </div>
+                    </mat-grid-tile>
+            </mat-grid-list>
+            <mat-card-content>
+                    <div style="width:50%; float:left;text-align: center">Votes: {{chilivote.answerLeft.votes}}</div>
+                    <div style="width:50%; float:right;text-align: center">Votes: {{chilivote.answerRight.votes}}</div>
+                  </mat-card-content>
+        </div>
+  </mat-card>

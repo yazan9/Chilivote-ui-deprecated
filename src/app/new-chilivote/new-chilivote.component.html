@@ -1,0 +1,37 @@
+<app-toolbar></app-toolbar>
+<div class="input-container">
+    <mat-form-field>
+        <input matInput placeholder="Ask your question" [(ngModel)] = "newChilivote.title" name="newChilivoteTitle">
+    </mat-form-field>
+</div>
+
+<div class="photos-container">
+    <mat-grid-list cols="2">
+        <mat-grid-tile>
+            <cl-image style="max-width:100%" (click)="openBottomSheet(1)" *ngIf="newChilivote.answerLeft; else defaultIMG1" class="" public-id={{newChilivote.answerLeft}} secure="true">
+                    
+            </cl-image>
+            <ng-template #defaultIMG1>
+            <img (click)="openBottomSheet(1)" class="upload-image-placeholder"
+                src="https://res.cloudinary.com/dzv1zwbj5/image/upload/v1570682352/Webp.net-resizeimage.jpg" 
+            />
+            </ng-template>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+                <cl-image style="max-width:100%" (click)="openBottomSheet(2)" *ngIf="newChilivote.answerRight;  else defaultIMG2" class="" public-id={{newChilivote.answerRight}} secure="true">
+                    </cl-image>
+                    <ng-template #defaultIMG2>
+                    <img (click)="openBottomSheet(2)" class="upload-image-placeholder"
+                        src="https://res.cloudinary.com/dzv1zwbj5/image/upload/v1570682352/Webp.net-resizeimage.jpg" 
+                    />
+                    </ng-template>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<div class="go-button">
+    <button mat-raised-button color="primary" (click)="submitChilivote()">Go</button>
+</div>
+
+<input id="PhotoUploader" style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>

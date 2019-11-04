@@ -1,0 +1,28 @@
+<mat-card *ngFor="let chilivote of chilivotes" class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{chilivote.username}}</mat-card-title>
+        <mat-card-subtitle>{{chilivote.created_at | date: 'short'}}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="photos-container">
+        <mat-grid-list cols="2">
+            <mat-grid-tile style="background-color:black" (click)="vote(chilivote.answerLeft, chilivote.answerRight)">
+                <cl-image style="max-width:100%;" [class.voted_image]="chilivote.answerLeft.voted" class=""
+                    public-id="{{chilivote.answerLeft.url}}" secure="true">
+                </cl-image>
+                <div *ngIf="chilivote.answerLeft.voted" style="color:white;position:absolute">
+                    <mat-icon>done</mat-icon>
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile style="background-color:black" (click)="vote(chilivote.answerRight, chilivote.answerLeft)">
+                <cl-image style="max-width:100%" [class.voted_image]="chilivote.answerRight.voted"
+                    public-id="{{chilivote.answerRight.url}}" secure="true">
+                </cl-image>
+                <div *ngIf="chilivote.answerRight.voted" style="color:white;position:absolute">
+                    <mat-icon>done</mat-icon>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</mat-card>

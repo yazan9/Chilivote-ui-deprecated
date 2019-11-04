@@ -1,0 +1,13 @@
+<mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{user.username}}</mat-card-title>
+          <mat-card-subtitle>{{user.created_at | date:'mediumDate'}}</mat-card-subtitle>
+
+          <div style="position:absolute; right:1em;">
+            <button *ngIf = "!user.isFollowing" mat-flat-button color="primary" (click)="onFollow()">Follow</button>
+            <button *ngIf = "user.isFollowing" mat-flat-button color="primary" (click)="onUnfollow()">Unfollow</button>
+          </div>
+
+        </mat-card-header>
+      </mat-card>

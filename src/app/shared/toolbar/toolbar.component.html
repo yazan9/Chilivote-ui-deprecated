@@ -1,0 +1,23 @@
+<mat-toolbar>
+    <span>Chilivote</span>
+    <span class="example-spacer"></span>
+
+    <a mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+    </a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onMyFeed()">
+          <mat-icon>view_stream</mat-icon>
+          <span>My Feed</span>
+        </button>
+        <button mat-menu-item (click)="onMyChilivotes()"> 
+          <mat-icon>insert_photo </mat-icon>
+          <span>My Chilivotes</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+
+</mat-toolbar>

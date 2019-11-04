@@ -1,0 +1,32 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { UserDTO } from 'src/app/models/UserDTO';
+import { UserService } from 'src/app/services/user.service';
+
+@Component({
+  selector: 'app-user-container',
+  templateUrl: './user-container.component.html',
+  styleUrls: ['./user-container.component.css']
+})
+export class UserContainerComponent implements OnInit {
+
+  @Input() user: UserDTO;
+  
+  constructor(private userService:UserService) { }
+
+  ngOnInit() {
+  }
+
+  onFollow()
+  {
+    this.userService.follow(this.user.id).subscribe(() => {
+      this.user.isFollowing = true;
+    })
+  }
+
+  onUnfollow(id:number)
+  {
+    this.userService.unfollow(this.user.id).subscribe(() => {
+      this.user.isFollowing = false;
+    })  
+  }
+}

@@ -1,0 +1,13 @@
+<mat-tab-group dynamicHeight [backgroundColor]="background"
+mat-stretch-tabs class="full-height">
+  <mat-tab label="For You">
+    <div style="overflow:scroll; background-color: lightgray">
+      <app-for-you-tab></app-for-you-tab>
+    </div>
+  </mat-tab>
+  <mat-tab label="Following">
+    <app-following-tab></app-following-tab>
+  </mat-tab>
+  <mat-tab label="Hot"></mat-tab>
+  <mat-tab label="Fire"></mat-tab>
+</mat-tab-group>
