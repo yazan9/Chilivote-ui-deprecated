@@ -10,12 +10,17 @@ import { UserDTO } from 'src/app/models/UserDTO';
 export class FollowingTabComponent implements OnInit {
 
   users: UserDTO[] = [];
+  randomUsers: UserDTO[] = [];
   constructor(private userService:UserService) { }
 
   ngOnInit() {
     this.userService.getFollowing().subscribe((result) => {
       this.users = result;
       this.users.forEach((user) => {user.isFollowing = true;})
+    })
+
+    this.userService.getRandom().subscribe((result) => {
+      this.randomUsers = result;
     })
   }
 }

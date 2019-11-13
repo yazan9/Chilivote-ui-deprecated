@@ -7,11 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewChilivoteComponent } from './new-chilivote/new-chilivote.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { TabsbarComponent } from './shared/tabsbar/tabsbar.component';
-import { CloudinaryModule } from '@cloudinary/angular-5.x';
-import * as  Cloudinary from 'cloudinary-core';
+//import { CloudinaryModule } from '@cloudinary/angular-5.x';
+//import * as  Cloudinary from 'cloudinary-core';
 import { HttpClientModule }    from '@angular/common/http';
 import { UploadBottomSheetComponent } from './modals/upload-bottom-sheet/upload-bottom-sheet.component';
 import { FormsModule } from '@angular/forms';
+
+import { Cloudinary } from '@cloudinary/angular-5.x/src/cloudinary.service';
+import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
+import { CloudinaryConfiguration, CloudinaryModule } from '@cloudinary/angular-5.x';
+import cloudinaryConfiguration from '../app/config';
 
 //Angular Material
 import { MatTabsModule } from '@angular/material';
@@ -32,6 +37,12 @@ import { ChilivoteContainerComponent } from './components/chilivote-container/ch
 import { DeleteChilivoteSheetComponent } from './modals/delete-chilivote-sheet/delete-chilivote-sheet.component';
 import { FollowingTabComponent } from './tabs/following-tab/following-tab.component';
 import { UserContainerComponent } from './components/user-container/user-container.component';
+import { FbLoginComponent } from './fb-login/fb-login.component';
+
+export const cloudinary = {
+  Cloudinary: CloudinaryCore
+};
+export const config: CloudinaryConfiguration = cloudinaryConfiguration;
 
 @NgModule({
   declarations: [
@@ -47,7 +58,8 @@ import { UserContainerComponent } from './components/user-container/user-contain
     ChilivoteContainerComponent,
     DeleteChilivoteSheetComponent,
     FollowingTabComponent,
-    UserContainerComponent
+    UserContainerComponent,
+    FbLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +72,7 @@ import { UserContainerComponent } from './components/user-container/user-contain
     MatButtonModule,
     MatInputModule,
     MatGridListModule,
-    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dzv1zwbj5'}),
+    CloudinaryModule.forRoot(cloudinary, config),
     HttpClientModule,
     MatBottomSheetModule,
     MatListModule,

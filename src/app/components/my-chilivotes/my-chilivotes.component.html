@@ -3,7 +3,7 @@
 <mat-card *ngFor = "let chilivote of chilivotes" class="example-card">
     <mat-card-header>
             <mat-icon (click)="onDelete(chilivote)" style="position: absolute; right:1em;">close</mat-icon>
-      <div mat-card-avatar class="example-header-image"></div>
+      <div mat-card-avatar class="example-header-image"><img src='{{avatar}}'/></div>
       <mat-card-title>{{user.username}}</mat-card-title>
       <mat-card-subtitle>{{chilivote.created_at | date:'medium'}}</mat-card-subtitle>
     </mat-card-header>

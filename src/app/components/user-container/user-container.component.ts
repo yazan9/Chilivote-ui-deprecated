@@ -14,6 +14,7 @@ export class UserContainerComponent implements OnInit {
   constructor(private userService:UserService) { }
 
   ngOnInit() {
+    this.user.avatar = this.parseAvatarString(this.user.avatar);
   }
 
   onFollow()
@@ -23,10 +24,17 @@ export class UserContainerComponent implements OnInit {
     })
   }
 
-  onUnfollow(id:number)
+  onUnfollow()
   {
     this.userService.unfollow(this.user.id).subscribe(() => {
       this.user.isFollowing = false;
     })  
+  }
+
+  parseAvatarString(avatar:string):string
+  {
+    let url = avatar.substr(avatar.indexOf('url='));
+    let removedUrl = url.substr(4, url.indexOf(',')-4);
+    return removedUrl;
   }
 }

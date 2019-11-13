@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+var device;
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'chilivote';
+
+  ngOnInit() {
+    document.addEventListener("deviceready", function () {
+      alert(device.platform);
+    }, false);
+
+  }
 }

@@ -33,6 +33,15 @@ export class UserService {
     return this.http.get<UserDTO[]>(this.UserUrl + '/following', httpOptions);
   }
 
+  public getRandom(): Observable<UserDTO[]>
+  {
+    const httpOptions = {
+      headers: this.getHeaders()
+    };
+
+    return this.http.get<UserDTO[]>(this.UserUrl + '/suggested_users', httpOptions);
+  }
+
   public follow(id:number): Observable<any>
   {
     const httpOptions = {

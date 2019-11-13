@@ -12,6 +12,7 @@ export interface UserDetails {
   email: string;
   avatar: string;
   exp: number;
+  username: string;
 }
 
 interface TokenResponse {

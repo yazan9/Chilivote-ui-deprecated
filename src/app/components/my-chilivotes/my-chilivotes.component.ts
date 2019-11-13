@@ -15,6 +15,7 @@ export class MyChilivotesComponent implements OnInit {
   chilivotes: MyChilivoteDTO[] = [];
   user: UserDetails;
   DeleteBottomSheetRef;
+  avatar:string;
 
   constructor(private chilivotesService: ChilivoteService, 
     private auth: AuthenticationService,
@@ -24,10 +25,18 @@ export class MyChilivotesComponent implements OnInit {
   ngOnInit() {
 
     this.user = this.auth.getUserDetails();
+    this.avatar = this.parseAvatarString(this.user.avatar);
 
     this.chilivotesService.getMyChilivotes().subscribe((result)=>{
       this.chilivotes = result;
     });
+  }
+
+  parseAvatarString(avatar:string):string
+  {
+    let url = avatar.substr(avatar.indexOf('url='));
+    let removedUrl = url.substr(4, url.indexOf(',')-4);
+    return removedUrl;
   }
 
   onDelete(chilivote: MyChilivoteDTO) {
