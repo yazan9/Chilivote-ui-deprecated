@@ -6,6 +6,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { MyChilivotesComponent } from './components/my-chilivotes/my-chilivotes.component';
 import {AuthGuard} from './auth/auth.guard';
 import { FbLoginComponent } from './fb-login/fb-login.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { DataDeletionComponent } from './components/data-deletion/data-deletion.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -13,7 +15,8 @@ const routes: Routes = [
   {path: 'new-chilivote', component: NewChilivoteComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'mychilivotes', component: MyChilivotesComponent, canActivate: [AuthGuard]},
-  //{path: 'login', component: FbLoginComponent},
+  {path: 'privacy', component: PrivacyPolicyComponent},
+  {path: 'delete-data', component: DataDeletionComponent},
   { path: '**', redirectTo: '/' }
 ];
 

@@ -38,6 +38,8 @@ import { DeleteChilivoteSheetComponent } from './modals/delete-chilivote-sheet/d
 import { FollowingTabComponent } from './tabs/following-tab/following-tab.component';
 import { UserContainerComponent } from './components/user-container/user-container.component';
 import { FbLoginComponent } from './fb-login/fb-login.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { DataDeletionComponent } from './components/data-deletion/data-deletion.component';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -59,7 +61,9 @@ export const config: CloudinaryConfiguration = cloudinaryConfiguration;
     DeleteChilivoteSheetComponent,
     FollowingTabComponent,
     UserContainerComponent,
-    FbLoginComponent
+    FbLoginComponent,
+    PrivacyPolicyComponent,
+    DataDeletionComponent
   ],
   imports: [
     BrowserModule,
