@@ -8,6 +8,7 @@ import {AuthGuard} from './auth/auth.guard';
 import { FbLoginComponent } from './fb-login/fb-login.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { DataDeletionComponent } from './components/data-deletion/data-deletion.component';
+import { UgcPolicyComponent } from './components/ugc-policy/ugc-policy.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'mychilivotes', component: MyChilivotesComponent, canActivate: [AuthGuard]},
   {path: 'privacy', component: PrivacyPolicyComponent},
   {path: 'delete-data', component: DataDeletionComponent},
+  {path: 'ugc-policy', component: UgcPolicyComponent},
   { path: '**', redirectTo: '/' }
 ];
 

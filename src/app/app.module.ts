@@ -40,6 +40,7 @@ import { UserContainerComponent } from './components/user-container/user-contain
 import { FbLoginComponent } from './fb-login/fb-login.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { DataDeletionComponent } from './components/data-deletion/data-deletion.component';
+import { UgcPolicyComponent } from './components/ugc-policy/ugc-policy.component';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -63,7 +64,8 @@ export const config: CloudinaryConfiguration = cloudinaryConfiguration;
     UserContainerComponent,
     FbLoginComponent,
     PrivacyPolicyComponent,
-    DataDeletionComponent
+    DataDeletionComponent,
+    UgcPolicyComponent
   ],
   imports: [
     BrowserModule,
